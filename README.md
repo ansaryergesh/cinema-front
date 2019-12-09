@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com). Programs, Node JS,Angular Js and Java Spring Boot(Install IntelIJ IDEA).  Before that run all microservices from backend.[Backend](https://github.com/ansaryergesh/cinema-ticket).
+To clone and run this application, you'll need [Git](https://git-scm.com). Programs, Node JS,Angular Js and Java Spring Boot(Install IntelIJ IDEA).  Before that run all microservices from backend([Backend link](https://github.com/ansaryergesh/cinema-ticket)).
 
 ```bash
 # Clone this repository
