@@ -1,0 +1,8 @@
+.logout {
+  position: absolute;
+  right: 1%;
+  margin-top: 6px;
+  background-image: linear-gradient(to right bottom, rgba(235, 217, 217, 0.5), rgba(176, 216, 196, 0.5));
+  border: none;
+  padding: 5px;
+}

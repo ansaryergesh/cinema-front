@@ -1,0 +1,53 @@
+<div *ngIf="movie">
+  {{movie.id}}
+  <p>{{movie.name}}</p>
+  <p>{{movie.description}}</p>
+  <p>{{movie.price}}</p>
+</div>
+
+<body>
+<header class="header">
+  <!-- <img src="img/logo-white.png" alt="Logo" class="header__logo"> -->
+  <div class="header__logo-box">
+  </div>
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Cinema</span>
+      <span class="heading-primary--sub">and movies</span>
+    </h1>
+
+    <a href="#" class="btn btn--white btn--animated">List of movies</a>
+  </div>
+</header>
+
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+<!--    <div class="form-group">-->
+<!--      <label for="cinema">Cinema</label>-->
+<!--      <input type="text" class="form-control" id="cinema" required [(ngModel)]="booking.cinema" name="cinema">-->
+<!--    </div>-->
+    <br><br>
+    <p >Cinema: {{cinema}}</p>
+    <p >Price: {{price}} tg</p>
+    <div class="form-group">
+      <label for="janre">Seat</label>
+      <input type="text" class="form-control" id="janre" required [(ngModel)]="booking.seat" name="janre">
+    </div>
+
+    <div class="form-group">
+      <label for="dateFilm">Date Film</label>
+      <input type="date" class="form-control" id="dateFilm" min="2019-12-10" max="2019-12-30" required [(ngModel)]="booking.date" name="janre">
+    </div>
+
+    <br><br>
+    <button type="submit" class="btn btn-success booking">Booking</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div>
+
+
+</body>

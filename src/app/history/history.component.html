@@ -1,0 +1,49 @@
+
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.." rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap..."></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+
+<body>
+<header class="header">
+  <!-- <img src="img/logo-white.png" alt="Logo" class="header__logo"> -->
+  <div class="header__logo-box">
+  </div>
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Cinema</span>
+      <span class="heading-primary--sub">and movies</span>
+    </h1>
+
+    <a href="/history" class="btn btn--white btn--animated">History</a>
+  </div>
+</header>
+<!--</body>-->
+
+
+<div class="panel-body">
+  <br>
+  <h1>History of booking tickets</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Cinema</th>
+      <th>Price</th>
+      <th>DateFilm</th>
+      <th>Seat Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let b of bookings | async">
+      <td>{{b.id}}</td>
+      <td>{{b.userID}}</td>
+      <td>{{b.cinema}}</td>
+      <td>{{b.price}}</td>
+      <td>{{b.date}}</td>
+      <td>{{b.seat}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>

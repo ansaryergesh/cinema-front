@@ -1,0 +1,80 @@
+
+<body>
+  <header class="header">
+    <!-- <img src="img/logo-white.png" alt="Logo" class="header__logo"> -->
+    <div class="header__logo-box">
+    </div>
+    <div class="header__text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary--main">Cinema</span>
+        <span class="heading-primary--sub">and movies</span>
+      </h1>
+
+      <a href="/history" class="btn btn--white btn--animated">History</a>
+    </div>
+  </header>
+
+<div *ngIf="currentUser==='admin'" class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-sm-2">
+            <br>
+            <h2>  Movies Manage Page</h2>
+          </div>
+          <div class="col-sm-3">
+
+
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="panel-body">
+        <h3><a href="/add" class=" btn-primary active btn--green" role="button" routerLinkActive="active">Add new Movie</a></h3>
+        <table class="table table-striped table-bordered">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Cinema</th>
+            <th>Description</th>
+            <th>DateFilm</th>
+            <th>Janre</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let movie of movies | async">
+            <td>{{movie.id}}</td>
+            <td>{{movie.name}}</td>
+            <td>{{movie.cinema}}</td>
+            <td>{{movie.description}}</td>
+            <td>{{movie.dateFilm}}</td>
+            <td>{{movie.janre}}</td>
+            <td>{{movie.price}}</td>
+            <td>{{movie.image.slice(12)}}</td>
+            <td><button (click)="deleteMovie(movie.id)">Delete</button>
+              <button (click)="viewMore(movie.id)">Details</button>        </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <br>
+  <br>
+  <section>
+    <div class="grid">
+    <div *ngFor="let movie of movies | async">
+      <div class="grid-item">
+        <img src = "assets/image/{{movie.image.slice(12)}}">
+        <p class="title">{{movie.name}}</p>
+        <p class="description">{{movie.description}}</p>
+
+        <button class="bnt-more" (click)="viewMore(movie.id, movie.price, movie.cinema)">ViewMore</button>
+      </div>
+
+    </div>
+    </div>
+  </section>
+</body>
