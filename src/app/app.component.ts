@@ -9,12 +9,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'cinema';
-  knopka = 'Loq out';
+  knopka = 'Log out';
+  currentUser = localStorage.getItem('currentUser');
   constructor(private movieService: MoviesService, private route: ActivatedRoute, private router: Router) { }
 
   loqout() {
     localStorage.removeItem('currentUser');
     this.router.navigate(['login']);
-    this.knopka = 'Login';
+    // this.knopka = 'Login';
   }
 }

@@ -15,13 +15,18 @@ import {FormsModule} from '@angular/forms';
 import { BookMovieComponent } from './book-movie/book-movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import {HistoryComponent} from './history/history.component';
+import { RegistrationComponent } from './registration/registration.component';
+import {Auth} from './AUTH';
+import { CinemaComponent } from './cinema/cinema.component';
 
 const routes: Routes = [
-  {path: 'movie', component: MovieComponent},
-  {path: 'add', component: AddMovieComponent},
-  {path: 'detail', component: MovieDetailComponent},
+  { path: '', redirectTo: 'movie', pathMatch: 'full', canActivate: [Auth]},
+  {path: 'movie', component: MovieComponent, canActivate: [Auth]},
+  {path: 'add', component: AddMovieComponent, canActivate: [Auth]},
+  {path: 'detail', component: MovieDetailComponent, canActivate: [Auth]},
   {path: 'login', component: LoginComponent},
-  {path: 'history', component: HistoryComponent},
+    {path: 'history', component: HistoryComponent, canActivate: [Auth]},
+  {path: 'register', component: RegistrationComponent},
 ];
 
 @NgModule({
@@ -34,7 +39,9 @@ const routes: Routes = [
     AddMovieComponent,
     BookMovieComponent,
     MovieDetailComponent,
-    HistoryComponent
+    HistoryComponent,
+    RegistrationComponent,
+    CinemaComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

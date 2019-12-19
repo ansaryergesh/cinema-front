@@ -9,7 +9,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
   getMovie(id: string): Observable<any> {
-    return this.http.get('http://localhost:8081/api/movie/m' + id);
+    return this.http.get('http://localhost:8088/request/' + id);
   }
   getMovieList(): Observable<any> {
     return this.http.get('http://localhost:8081/api/all');

@@ -1,5 +1,5 @@
 body {
- background-image: url("http://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9");
+  background-image: url("http://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9");
   background-repeat: no-repeat;
   background-size:cover ;
   height: 100vh;
@@ -104,6 +104,7 @@ body {
 .login-form .content .input {
   width: 188px;
   padding: 15px 25px;
+
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -119,17 +120,27 @@ body {
   -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
 }
 
-.label-1 {
-  margin-right: 38px;
-}
-
-.label-2{
-  margin-right: 15px;
-}
 .login {
   padding: 5px;
   border-radius: 10px;
   background-color: cornsilk;
   border-color: #cccccc;
   cursor: pointer;
+}
+
+.label-1 {
+  margin-right: 50px
+}
+
+.label-2{
+  margin-right: 27px;
+}
+
+.label-3{
+  margin-right: 28px;
+}
+
+.label-4{
+  margin-right: 6px;
+
 }

@@ -15,6 +15,9 @@ export class MovieComponent implements OnInit {
   constructor(private movieService: MoviesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    if (!this.currentUser) {
+      this.router.navigate(['login']);
+    }
     this.reloadData();
   }
 
@@ -39,6 +42,7 @@ export class MovieComponent implements OnInit {
     localStorage.setItem('price', price);
     this.router.navigate(['detail']);
   }
+
 
 
 }

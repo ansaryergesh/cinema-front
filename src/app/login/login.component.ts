@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MoviesService} from '../movies.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Movie} from '../Movie';
+import {AuthenticationserviceService} from '../authenticationservice.service';
 
 @Component({
   selector: 'app-login',
@@ -9,34 +10,68 @@ import {Movie} from '../Movie';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user: any = {username: ' '};
   submitted = false;
-  error = '';
-  username = '';
+  userName = '';
   password = '';
-  constructor( private movieService: MoviesService, private route: ActivatedRoute, private router: Router) { }
+  error: string;
+  count: number;
+  private isUScustomer: boolean;
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthenticationserviceService) { }
 
   ngOnInit() {
+    // this.authService.getUserByUserNameAndPassword('user', 'user').subscribe((data: {}) => {
+    //   this.user = data;
+    //   console.log(this.user);
+    // });
   }
-
-  newGame(): void {
-    this.submitted = false;
-  }
-
 
   save() {
-    localStorage.setItem('currentUser', this.username);
-    this.router.navigate(['movie']);
+    localStorage.setItem('currentUser', this.userName);
+    this.router.navigate(['/']);
+  }
+  onSubmit() {
+    this.canActivate(this.userName, this.password);
+    // console.log(this.userName, this.password)
+    // if (this.canActivate(this.userName, this.password) === true) {
+    //   this.save();
+    // }
+    // if (!this.canActivate(this.userName, this.password)) {
+    //   this.error = 'UserName Or Password is not Correct';
+    // } else {
+    //   this.save();
+    // }
   }
 
-  onSubmit() {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.save();
-    } else if (this.username === 'ansar' && this.password === 'ansar') {
-      this.save();
-    } else {
-      this.error = 'error';
-      this.submitted = false;
-    }
+  canActivate(userName: string, password: string) {
+    this.authService.getUserByUserNameAndPassword(userName, password)
+      .subscribe(x => {
+        this.isUScustomer = x;
+        console.log(this.isUScustomer); //Its undefined
+        console.log(x); //it logs true.
+      });
+    setTimeout(() => {
+        if (this.isUScustomer === true) {
+          localStorage.setItem('currentUser', this.userName);
+          this.router.navigate(['/']);
+        } else {
+          this.error = 'UserName Or Password is not Correct';
+        }
+      },
+      300);
+    //
+    // if (userName === 'ADMIN' && password === 'ADMIN') {
+    //   return true;
+    // } else if (userName === 'aza' && password === 'aza') {
+    //   return true;
+    // } else if (userName === 'erlan' && password === 'erlan') {
+    //   return true;
+    // }
+    // not logged in so redirect to login page with the return url
+  }
+
+  redir() {
+    this.router.navigate(['register']);
   }
 
 

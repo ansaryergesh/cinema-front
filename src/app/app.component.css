@@ -5,4 +5,37 @@
   background-image: linear-gradient(to right bottom, rgba(235, 217, 217, 0.5), rgba(176, 216, 196, 0.5));
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
+.nav-menu {
+  position: absolute;
+  top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.ul-nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  color: white;
+  text-decoration: none;
+}
+.nav-list {
+  margin-left: 50px;
+  color: black;
+}
+
+.a-link {
+  text-decoration: none;
+  color: white;
+}
+.a-link:hover{
+  color: #ff7730;
+}
+.nav-list:nth-child(2), .nav-list:nth-child(3){
+  margin-left:80px;
+}
+
+
+
